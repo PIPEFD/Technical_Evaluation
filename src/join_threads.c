@@ -9,7 +9,7 @@ int join_threads(t_threads_table *thread_table)
     {
         if (pthread_join((*thread_table).threads[i], NULL) != 0)
         {
-            // free_threads(thread_table);
+            free_threads(thread_table);
             return (1);
         }
         i++;

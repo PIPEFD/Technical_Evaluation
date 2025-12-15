@@ -15,10 +15,7 @@ int	create_threads(t_threads_table *thread_table)
         if (pthread_create(&(*thread_table).threads[i], NULL, 
         (void *(*)(void *))generation_aletory_numbers, 
         (void *)thread_table->thread_args[i]) != 0)
-		{
-            // free_threads(thread_table);
-			return (1);
-		}
+            return (free_threads(thread_table), 1);
         i++;
 	}
     

@@ -17,34 +17,17 @@ int main (int argc, char **argv)
     if (set_threads(&threads_table, &nbr_threads, &nbr_per_thread) != 0 || thread_memory_allocation(&threads_table) != 0)
     return (write(2, "Error: Initialization failed\n", 29), 1);
     if(create_threads(&threads_table) != 0)
-        return (write(2, "Error: Thread creation failed\n", 30), 1);
+        return (free_threads(&threads_table),write(2, "Error: Thread creation failed\n", 30), 1);
     if(join_threads(&threads_table) != 0)
-        return (write(2, "Error: Thread joining failed\n", 29), 1); 
+        return (free_threads(&threads_table),write(2, "Error: Thread joining failed\n", 29), 1); 
 
-    // Print positive numbers
-    printf("\n=== POSITIVE NUMBERS  BEFORE SORT(List 0) ===\n");
-    printf("Total count: %zu\n", threads_table.list_threads->threads[LIST_POSITIVE].size);
-    printf("Content: ");
-    for (size_t j = 0; j < threads_table.list_threads->threads[LIST_POSITIVE].size; j++)
-    {
-        printf("%d ", threads_table.list_threads->threads[LIST_POSITIVE].data[j]);
-    }
-    printf("\n");
-    
-    // Print negative numbers
-    printf("\n=== NEGATIVE NUMBERS  BEFORE SORT(List 1) ===\n");
-    printf("Total count: %zu\n", threads_table.list_threads->threads[LIST_NEGATIVE].size);
-    printf("Content: ");
-    for (size_t j = 0; j < threads_table.list_threads->threads[LIST_NEGATIVE].size; j++)
-    {
-        printf("%d ", threads_table.list_threads->threads[LIST_NEGATIVE].data[j]);
-    }
-    printf("\n\n");
-    if(sort_threads_lists(&threads_table) != 0 && verify_results(&threads_table) != 0)
-        return (write(2, "Error: Sorting failed\n", 22), 1);
+   
+    if(sort_threads_lists(&threads_table) != 0 || verify_results(&threads_table) != 0)
+        return (free_threads(&threads_table),write(2, "Error: Sorting failed\n", 22), 1);
     if (print_results(&threads_table) != 0)
         return (write(2, "Error: Printing results failed\n", 31), 1);
-
+    if (free_threads(&threads_table) != 0)
+        return (write(2, "Error: Freeing memory failed\n", 29), 1);
     printf("Number of threads: %d\n", nbr_threads);
     printf("Number per thread: %d\n", nbr_per_thread);
 
