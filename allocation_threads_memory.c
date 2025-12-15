@@ -47,7 +47,13 @@ int thread_args_allocation(t_threads_table *thread_table)
             }
             thread_table->thread_args[i]->thread_table = thread_table;
             thread_table->thread_args[i]->thread_id = i;
-            // thread_table->thread_args[i]->seed = init_thread_aletory_rng_seed(thread_table, (void*)thread_table->thread_args[i],i);
+            thread_table->thread_args[i]->seed = init_thread_aletory_rng_seed(thread_table, (void*)thread_table->thread_args[i],i);
+            printf("Allocated thread arguments at address %p for thread %d with final seed %llu\n\n", 
+                (void*)thread_table->thread_args[i], 
+                i, 
+                thread_table->thread_args[i]->seed);
+            printf("Memory address of seed in thread args: %p\n", (void*)&thread_table->thread_args[i]->seed);
+            printf("--------------------------------------------------\n");
             i++;
         }
     }
