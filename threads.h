@@ -81,8 +81,11 @@ unsigned long long set_hash_mix(unsigned long long x);
 
 unsigned long long init_thread_with_aleatory_rng(unsigned long long *nbr);
 
+int compare_lists(const void *a, const void *b);
+
 int sort_threads_lists(t_threads_table *thread_table);
 
+int verify_results(t_threads_table *thread_table);
 
 unsigned long long init_thread_aletory_rng_seed(t_threads_table *thread_table, void *thread_ptr, int thread_id);
 
