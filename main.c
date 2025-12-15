@@ -1,4 +1,4 @@
-
+#include "threads.h"
 
 int parse(const char *str, int *nbr)
 {

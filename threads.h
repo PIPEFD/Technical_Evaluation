@@ -16,6 +16,8 @@
 #include <string.h>
 #include <time.h>
 
+
+typedef struct t_threads_table t_threads_table;
 // Structure Definitions
 
 
@@ -35,7 +37,7 @@ typedef struct t_thread_args
 } t_threads__args;
 
 
-typedef enum
+enum
 {
     LIST_POSITIVE = 0,
     LIST_NEGATIVE = 1,
