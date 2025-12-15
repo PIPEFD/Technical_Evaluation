@@ -75,6 +75,7 @@ int list_thread_allocation(t_threads_table *thread_table, size_t size_list);
 void *generation_aletory_numbers(void *arg);
 unsigned long long aletory_number_with_rng(unsigned long long *nbr);
 
+int join_threads(t_threads_table *thread_table);
 
 unsigned long long set_hash_mix(unsigned long long x);
 
