@@ -55,14 +55,14 @@ typedef struct t_list_threads
 typedef struct t_threads_table
 {
     
-    int  nbr_threads;
-    int nbr_per_thread;
-    pthread_t *threads;
-    t_list_threads *list_threads;
-    t_threads__args *args;
-    size_t total_postive_numbers;
-    size_t total_negative_numbers;
-    unsigned long long seed;
+    int                  nbr_threads;
+    int                  nbr_per_thread;
+    pthread_t           *threads;
+    t_list_threads      *list_threads;
+    t_threads__args     *args;
+    size_t              total_postive_numbers;
+    size_t               total_negative_numbers;
+    unsigned long long  seed;
 
 } t_threads_table;
 
@@ -71,6 +71,8 @@ typedef struct t_threads_table
 // Function Prototypes
 
 int     parse(const char *str, int *nbr);
+int     set_threads(t_threads_table *thread_table, int *nbr_threads, int *nbr_per_thread);
+
 
 
 #endif
