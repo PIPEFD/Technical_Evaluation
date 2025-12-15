@@ -55,9 +55,9 @@ int     set_threads(t_threads_table *thread_table, int *nbr_threads, int *nbr_pe
 
         if (set_seed_threads(thread_table, &seed) == 0)
             (*thread_table).seed = seed;
-        printf("nbr_threads %d\n", (*thread_table).nbr_threads);
-        printf("nbr_per_thread %d\n", (*thread_table).nbr_per_thread);
-        printf("seed %llu\n", (*thread_table).seed);
+        // printf("nbr_threads %d\n", (*thread_table).nbr_threads);
+        // printf("nbr_per_thread %d\n", (*thread_table).nbr_per_thread);
+        // printf("seed %llu\n", (*thread_table).seed);
         return(0);
     }
     return(1);

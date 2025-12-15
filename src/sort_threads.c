@@ -27,7 +27,5 @@ int sort_threads_lists(t_threads_table *thread_table)
             i++;
         }
    } 
-   
-
     return (0);
 }
