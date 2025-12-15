@@ -1,10 +1,4 @@
 
-#include <unistd.h>
-#include <stdio.h>
-
-#include <stdlib.h>
-#include <limits.h>
-
 
 int parse(const char *str, int *nbr)
 {
