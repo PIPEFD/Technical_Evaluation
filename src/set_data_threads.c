@@ -12,7 +12,7 @@ unsigned long long set_hash_mix(unsigned long long x)
         hash = hash ^ (hash >> 42);
         hash = hash * 0xc4ceb9fe1a85ec53ULL;
         hash = hash ^ (hash >> 42);
-        printf("hash %llu\n", hash);
+        // printf("hash %llu\n", hash);
         return (hash);
     }
     return (0x123456789abcdefULL);
@@ -51,7 +51,7 @@ int     set_threads(t_threads_table *thread_table, int *nbr_threads, int *nbr_pe
         (*thread_table).nbr_threads = *nbr_threads;
         (*thread_table).nbr_per_thread = *nbr_per_thread;
         (*thread_table).total_negative_numbers = 0;
-        (*thread_table).total_postive_numbers = 0;
+        (*thread_table).total_positive_numbers = 0;
 
         if (set_seed_threads(thread_table, &seed) == 0)
             (*thread_table).seed = seed;

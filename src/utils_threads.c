@@ -6,7 +6,7 @@ int print_results(t_threads_table *threads_table)
 {
     if (threads_table && threads_table->list_threads)
     {
-        printf("\n=== POSITIVE NUMBERS (List 0) ===\n");
+        printf("\n=== POSITIVE NUMBERS (List [%d]) \n", LIST_POSITIVE);
         printf("Total count: %zu\n", (*threads_table).list_threads->threads[LIST_POSITIVE].size);
         printf("Content: ");
         for (size_t j = 0; j < (*threads_table).list_threads->threads[LIST_POSITIVE].size; j++)
@@ -14,7 +14,7 @@ int print_results(t_threads_table *threads_table)
             printf("%d ", (*threads_table).list_threads->threads[LIST_POSITIVE].data[j]);
         }
         printf("\n");
-        printf("\n=== NEGATIVE NUMBERS (List 1) ===\n");
+        printf("\n=== NEGATIVE NUMBERS ([%d]) \n", LIST_NEGATIVE);
         printf("Total count: %zu\n", (*threads_table).list_threads->threads[LIST_NEGATIVE].size);
         printf("Content: ");
         for (size_t j = 0; j < (*threads_table).list_threads->threads[LIST_NEGATIVE].size; j++)
