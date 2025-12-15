@@ -14,7 +14,7 @@ int main (int argc, char **argv)
         return(write(2, "Usage: ./program <nbr_threads> <nbr_per_thread>\n", 48), 1);
     if (parse(argv[1], &nbr_threads) != 0 || parse(argv[2], &nbr_per_thread) != 0)
         return(write(2, "Error: Invalid arguments\n", 25), 1);
-    if (set_threads(&threads_table, &nbr_threads, &nbr_per_thread) != 0)
+    if (set_threads(&threads_table, &nbr_threads, &nbr_per_thread) != 0 || thread_memory_allocation(&threads_table) != 0)
     return (write(2, "Error: Initialization failed\n", 29), 1);
 
     printf("Number of threads: %d\n", nbr_threads);

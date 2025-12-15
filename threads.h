@@ -29,13 +29,13 @@ typedef struct t_thread_data
     size_t  space;
 } t_thread_data;
 
-typedef struct t_thread_args
+typedef struct  thread_args
 {
-    t_threads_table  *threads_table;
-    int thread_id;
-    unsigned long long seed;
-} t_threads__args;
+    t_threads_table        *thread_table;
+    int                   thread_id;
+    unsigned long long    seed;
 
+}              t_thread_args;
 
 enum
 {
@@ -46,7 +46,7 @@ enum
 
 typedef struct t_list_threads
 {
-    t_thread_data  *threads_data[LIST_SIZE];
+    t_thread_data  threads[LIST_SIZE];
     pthread_mutex_t mutex[LIST_SIZE];
 } t_list_threads;
 
@@ -55,14 +55,14 @@ typedef struct t_list_threads
 typedef struct t_threads_table
 {
     
-    int                  nbr_threads;
-    int                  nbr_per_thread;
-    pthread_t           *threads;
-    t_list_threads      *list_threads;
-    t_threads__args     *args;
-    size_t              total_postive_numbers;
-    size_t               total_negative_numbers;
-    unsigned long long  seed;
+    int                     nbr_threads;
+    int                     nbr_per_thread;
+    pthread_t               *threads;
+    t_list_threads          *list_threads;
+    t_thread_args           **thread_args;
+    size_t                  total_postive_numbers;
+    size_t                  total_negative_numbers;
+    unsigned long long      seed;
 
 } t_threads_table;
 
@@ -74,5 +74,9 @@ int     parse(const char *str, int *nbr);
 int     set_threads(t_threads_table *thread_table, int *nbr_threads, int *nbr_per_thread);
 
 
+int thread_memory_allocation(t_threads_table *thread_table);
+
+
+int list_thread_allocation(t_threads_table *thread_table, size_t size_list);
 
 #endif
