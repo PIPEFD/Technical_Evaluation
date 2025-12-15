@@ -75,7 +75,7 @@ rng_state = seed_global ^ thread_id   // Cada thread tiene estado único
 - **2 listas compartidas** con mutexes independientes (reducción de contención)
 - **Pre-asignación** de memoria calculada (sin reallocaciones dinámicas)
 - **Cleanup completo** con destrucción de mutexes y liberación de recursos
-- *Norma** (sin truncar).
+- **Normal (sin truncar).
 
 ## 🔬 Análisis de Correctitud
 
