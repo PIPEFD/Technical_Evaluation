@@ -1,5 +1,21 @@
 #include "threads.h"
 
+
+
+unsigned long long aletory_number_with_rng(unsigned long long *nbr)
+{
+    unsigned long long a = 6364136223846793005ULL;
+    unsigned long long c = 1442695040888963407ULL;
+
+    if (nbr)
+    {
+        *nbr = a * (*nbr) + c;
+        return (*nbr);
+    }
+    return (0);
+}
+
+
 int parse(const char *str, int *nbr)
 {
     char    *endptr;
