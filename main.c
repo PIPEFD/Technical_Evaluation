@@ -20,6 +20,8 @@ int main (int argc, char **argv)
         return (write(2, "Error: Thread creation failed\n", 30), 1);
     if(join_threads(&threads_table) != 0)
         return (write(2, "Error: Thread joining failed\n", 29), 1); 
+    if(sort_threads_lists(&threads_table) != 0)
+        return (write(2, "Error: Sorting failed\n", 22), 1);
     printf("Number of threads: %d\n", nbr_threads);
     printf("Number per thread: %d\n", nbr_per_thread);
     return(0);

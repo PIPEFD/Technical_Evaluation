@@ -1,6 +1,25 @@
 #include "threads.h"
 
 
+int compare_lists(const void *a, const void *b)
+{
+    int *int_a = (int *)a;
+    int *int_b = (int *)b;
+    if (int_a && int_b)
+    {
+        if (*int_a < *int_b)
+            return (-1);
+        else if (*int_a > *int_b)
+            return (1);
+        
+    }
+    else
+        return (0);
+    
+    return (0);
+}
+
+
 
 unsigned long long aletory_number_with_rng(unsigned long long *nbr)
 {
